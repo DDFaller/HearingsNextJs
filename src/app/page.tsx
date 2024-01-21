@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     // Fetch your API data here and update the state
     // Example: Fetching hearings data from your API
-    fetch("https://localhost:7195/hearings")
+    fetch("https://hearings.azurewebsites.net/Hearings")
       .then((response) => response.json())
       .then((data: Hearing[]) => setHearings(data));
   }, []);
