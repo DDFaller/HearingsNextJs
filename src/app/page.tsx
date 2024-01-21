@@ -24,7 +24,7 @@ export default function Home() {
       },
     };
   
-    fetch("https://hearings.azurewebsites.net/Hearings", { headers })
+    fetch("https://hearings.azurewebsites.net/Hearings",  headers )
       .then((response) => response.json())
       .then((data: Hearing[]) => setHearings(data))
       .catch((error) => {
