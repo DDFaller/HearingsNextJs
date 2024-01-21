@@ -15,10 +15,23 @@ export default function Home() {
   useEffect(() => {
     // Fetch your API data here and update the state
     // Example: Fetching hearings data from your API
-    fetch("https://hearings.azurewebsites.net/Hearings")
+  
+    const headers = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        // Add any other headers if needed
+      },
+    };
+  
+    fetch("https://hearings.azurewebsites.net/Hearings", { headers })
       .then((response) => response.json())
-      .then((data: Hearing[]) => setHearings(data));
+      .then((data: Hearing[]) => setHearings(data))
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
+  
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
