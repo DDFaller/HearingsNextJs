@@ -29,7 +29,7 @@ export default function Home() {
       },
     };
   
-    fetch("https://hearings.azurewebsites.net/Hearings/Get",  headers )
+    fetch("https://hearings.azurewebsites.net/Hearings/GetFromDB",  headers )
       .then((response) => response.json())
       .then((data: Hearing[]) => setHearings(data))
       .catch((error) => {
