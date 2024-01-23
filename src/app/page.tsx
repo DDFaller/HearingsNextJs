@@ -11,7 +11,7 @@ import { Hearing } from "@/interfaces/Hearing";
 
 
 const theme = createTheme({
-  /** Put your mantine theme override here */
+  /** mantine theme override here */
 });
 
 export default function Home() {
@@ -38,20 +38,13 @@ export default function Home() {
   }
   useEffect(() => {
     // Fetch your API data here and update the state
-    // Example: Fetching hearings data from your API  
     handleGetHearings();
   }, []);
 
 
 
-  const handleUpdateHearing = (processNumber: string, updatedHearing: any) => {
-    // Implement the logic to update the hearing in the API
-    // Update the state or fetch the updated data from the API
-  };
-
   const handleDeleteHearing = (processNumber: string) => {
-    // Implement the logic to delete the hearing from the API
-    // Update the state or fetch the updated data from the API
+    // Delete the data using API
     const handleDelete = async () => {
       try {
         const response = await fetch(`https://hearings.azurewebsites.net/Hearings/${processNumber}`, {
@@ -63,7 +56,7 @@ export default function Home() {
         });
   
         if (response.ok) {
-          //onDelete(); // Trigger callback to update state or perform any other actions
+          // Trigger callback to update state or perform any other actions
         } else {
           // Handle error (e.g., show an error message)
           console.error("Failed to delete hearing");
@@ -88,7 +81,7 @@ export default function Home() {
 
         {/* Update Hearing Component */}
         {selectedHearing && (
-          <UpdateHearing hearing={selectedHearing} onUpdate={handleUpdateHearing} />
+          <UpdateHearing hearing={selectedHearing} onUpdate={handleDeleteHearing} />
         )}
 
         {/* Delete Hearing Component */}

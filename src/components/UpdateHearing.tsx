@@ -3,11 +3,13 @@ import { Button, TextInput } from '@mantine/core';
 import { useState } from 'react';
 import { Stack,Group } from '@mantine/core';
 
+// Defining the props interface for the UpdateHearing component
 interface UpdateHearingProps {
   hearing: any;
   onUpdate: (processNumber: string, updatedHearing: any) => void;
 }
 
+// Functional component representing a form to update a hearing
 const UpdateHearing: React.FC<UpdateHearingProps> = ({ hearing, onUpdate }) => {
   const [updatedHearing, setUpdatedHearing] = useState({ ...hearing });
 
@@ -19,7 +21,8 @@ const UpdateHearing: React.FC<UpdateHearingProps> = ({ hearing, onUpdate }) => {
   const handleUpdateHearing = () => {
     onUpdate(hearing.processNumber, updatedHearing);
   };
-
+  
+  // JSX structure of the UpdateHearing component
   return (
       <Group justify='center' className='flex space-y-4'>
       <TextInput
@@ -37,7 +40,6 @@ const UpdateHearing: React.FC<UpdateHearingProps> = ({ hearing, onUpdate }) => {
         value={updatedHearing.correspondent}
         onChange={handleInputChange}
       />
-      <Button onClick={handleUpdateHearing}>Update Hearing</Button>
       </Group>
   );
 };

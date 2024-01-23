@@ -3,16 +3,19 @@ import React from "react";
 import { Table, Button } from "@mantine/core";
 import { Hearing } from "@/interfaces/Hearing";
 
+
+// Defining the props interface for the HearingsTable component
 interface HearingsTableProps {
   hearings: Hearing[];
   onSelect: (hearing: Hearing) => void;
 }
 
 const HearingsTable: React.FC<HearingsTableProps> = ({ hearings,  onSelect }) => {
+  // Function to handle selecting a hearing and triggering the onSelect callback
   const handleSelect = (hearing: Hearing) => {
     onSelect(hearing);
   };
-  
+  // Mapping the hearings array to table rows
   const rows = hearings.map((element: Hearing) => (
     <Table.Tr key={element.processNumber}>
       <Table.Td>{element.processNumber}</Table.Td>
@@ -22,11 +25,11 @@ const HearingsTable: React.FC<HearingsTableProps> = ({ hearings,  onSelect }) =>
       <Table.Td>{element.correspondent}</Table.Td>
       <Table.Td>
         <Button onClick={() => handleSelect(element)}>Edit</Button>
-        {/* Add a Delete button here if you want to implement delete functionality */}
       </Table.Td>
     </Table.Tr>
   ));
 
+  // JSX structure of the HearingsTable component
   return (
     <Table>
       <Table.Thead>
