@@ -13,7 +13,7 @@ const UpdateHearing: React.FC<UpdateHearingProps> = ({ hearing, onUpdate }) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUpdatedHearing((prev) => ({ ...prev, [name]: value }));
+    setUpdatedHearing((prev: any) => ({ ...prev, [name]: value }));
   };
 
   const handleUpdateHearing = () => {
