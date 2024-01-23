@@ -6,7 +6,6 @@ import { Hearing } from "@/interfaces/Hearing";
 interface HearingsTableProps {
   hearings: Hearing[];
   onSelect: (hearing: Hearing) => void;
-  onAdd: () => void;
 }
 
 const HearingsTable: React.FC<HearingsTableProps> = ({ hearings,  onSelect }) => {
